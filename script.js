@@ -74,7 +74,9 @@ const listenToClicks = () => {
         cells[cell.id] = currentPlayer;
         console.log(cells);
         checkForWin();
-        checkForDraw();
+        if (!checkForWin()) {
+          checkForDraw();
+        }
         swapPlayer();
       },
       { once: true }
@@ -90,8 +92,10 @@ const checkForWin = () => {
       cells[winningCombination[2]] === currentPlayer
     ) {
       endOfGame(`"${currentPlayer}" WINS !`);
+      return true;
     }
   }
+  return false;
 };
 
 const checkForDraw = () => {
@@ -102,7 +106,7 @@ const checkForDraw = () => {
     }
   });
   if (sum === 9) {
-    endOfGame(`It's a draw !`);
+    endOfGame(`It's a tie !`);
   }
 };
 
