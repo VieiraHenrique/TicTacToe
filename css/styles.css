@@ -1,0 +1,150 @@
+@font-face {
+  font-family: 'Baloo Tamma 2';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/balootamma2/v2/vEFX2_hCAgcR46PaajtrYlBbT0g.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Baloo Tamma 2';
+  font-style: normal;
+  font-weight: 800;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/balootamma2/v2/vEFK2_hCAgcR46PaajtrYlBbd-ga8tI.ttf) format('truetype');
+}
+/* VARIABLES */
+/* RESET */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  overflow: hidden;
+  line-height: 1;
+}
+body {
+  background: radial-gradient(#222, #000);
+  font-family: "Baloo Tamma 2", sans-serif;
+}
+.container {
+  margin: 0 auto;
+  max-width: 1200px;
+  padding: 0 20px;
+}
+img {
+  width: 100%;
+}
+/* MODAL */
+.modal {
+  position: fixed;
+  top: 0;
+  background: #000;
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.modal__title {
+  color: #fff;
+  font-size: 40px;
+}
+.modal__content {
+  margin: 30px 0;
+  color: #ccc;
+  font-size: 18px;
+}
+.modal__content ul {
+  list-style: disc;
+}
+.modal__content ul li {
+  margin: 20px 0;
+}
+.modal__action {
+  display: inline-block;
+  background: #e2001a;
+  padding: 10px 20px;
+  color: #fff;
+  border-radius: 10px;
+}
+.modal__action:hover {
+  background: #af0014;
+  cursor: pointer;
+}
+/* HEADER */
+.header {
+  background: #fff;
+  height: 100px;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+}
+.header-blackBg {
+  position: absolute;
+  width: 100%;
+  height: 30px;
+  background: #000;
+  bottom: 0;
+}
+.header-redBg {
+  position: absolute;
+  width: 100%;
+  height: 30px;
+  background: #e2001a;
+  bottom: 30px;
+}
+.header .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 100%;
+}
+.header__logo {
+  width: 250px;
+  display: grid;
+  place-items: center;
+  position: relative;
+  z-index: 10;
+}
+/* MAIN */
+.main {
+  margin-top: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.main .title {
+  margin-top: 30px;
+  text-align: center;
+}
+.main .title h1 {
+  font-size: 40px;
+  font-weight: 400;
+  color: #fff;
+}
+.main .title p {
+  color: #ccc;
+}
+/* GAME */
+.game__frame {
+  margin-top: 30px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  width: 450px;
+}
+.game__frame .cell {
+  width: 150px;
+  height: 150px;
+  border: 4px solid #000;
+  display: grid;
+  place-items: center;
+  font-size: 100px;
+  font-weight: bold;
+}
+.game__frame .X {
+  color: #fff;
+}
+.game__frame .O {
+  color: #e2001a;
+}

@@ -1,0 +1,178 @@
+// IMPORTS
+@import url("https://fonts.googleapis.com/css2?family=Baloo+Tamma+2:wght@400;800&display=swap");
+
+/* VARIABLES */
+
+// fonts
+@font-family: "Baloo Tamma 2", sans-serif;
+// colors
+@primary-color: #e2001a;
+@hover: darken(@primary-color, 10%);
+@gray: #222;
+@gray-light: #ccc;
+@white: #fff;
+@black: #000;
+// sizes
+@cell-size: 150px;
+@grid-size: @cell-size * 3;
+
+/* RESET */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  overflow: hidden;
+  line-height: 1;
+}
+
+body {
+  background: radial-gradient(@gray, @black);
+  font-family: @font-family;
+}
+
+.container {
+  margin: 0 auto;
+  max-width: 1200px;
+  padding: 0 20px;
+}
+
+img {
+  width: 100%;
+}
+
+/* MODAL */
+
+.modal {
+  position: fixed;
+  top: 0;
+  background: @black;
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  &__title {
+    color: @white;
+    font-size: 40px;
+  }
+
+  &__content {
+    margin: 30px 0;
+    color: @gray-light;
+    font-size: 18px;
+
+    ul {
+      list-style: disc;
+
+      li {
+        margin: 20px 0;
+      }
+    }
+  }
+
+  &__action {
+    display: inline-block;
+    background: @primary-color;
+    padding: 10px 20px;
+    color: @white;
+    border-radius: 10px;
+
+    &:hover {
+      background: @hover;
+      cursor: pointer;
+    }
+  }
+}
+
+/* HEADER */
+
+.header {
+  background: @white;
+  height: 100px;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+
+  &-blackBg {
+    position: absolute;
+    width: 100%;
+    height: 30px;
+    background: @black;
+    bottom: 0;
+  }
+  &-redBg {
+    position: absolute;
+    width: 100%;
+    height: 30px;
+    background: @primary-color;
+    bottom: 30px;
+  }
+
+  .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100%;
+  }
+
+  &__logo {
+    width: 250px;
+    display: grid;
+    place-items: center;
+    position: relative;
+    z-index: 10;
+  }
+}
+
+/* MAIN */
+
+.main {
+  margin-top: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
+  .title {
+    margin-top: 30px;
+    text-align: center;
+    h1 {
+      font-size: 40px;
+      font-weight: 400;
+      color: @white;
+    }
+
+    p {
+      color: @gray-light;
+    }
+  }
+}
+
+/* GAME */
+.game__frame {
+  margin-top: 30px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  width: @grid-size;
+
+  .cell {
+    width: @cell-size;
+    height: @cell-size;
+    border: 4px solid @black;
+    display: grid;
+    place-items: center;
+    font-size: 100px;
+    font-weight: bold;
+  }
+
+  .X {
+    color: @white;
+  }
+
+  .O {
+    color: @primary-color;
+  }
+}

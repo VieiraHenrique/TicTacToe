@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TicTacToe | Henrique Vieira</title>
+    <link rel="stylesheet" href="/css/styles.css" />
+  </head>
+  <body>
+    <!-- HEADER -->
+    <header class="header">
+      <div class="header-redBg"></div>
+      <div class="header-blackBg"></div>
+      <div class="container">
+        <div class="header__logo">
+          <img src="/img/logo.png" alt="Bingoal Logo" />
+        </div>
+        <div class="header__menu">
+          <!-- Place for eventual menu -->
+        </div>
+      </div>
+    </header>
+
+    <!-- MAIN CONTENT -->
+    <main class="main">
+      <!-- TITLE -->
+      <div class="title">
+        <h1>Tic Tac Toe</h1>
+        <p>by Henrique Vieira</p>
+      </div>
+      <!-- MAIN GAME AREA -->
+      <div class="game__frame" id="game__frame"></div>
+    </main>
+
+    <!-- MODAL -->
+    <div class="modal" id="modal">
+      <div>
+        <div class="modal__title">Welcome to Bingoal's TicTacToe !</div>
+        <div class="modal__content">
+          <ul>
+            <li>The game is played on a grid that's 3 squares by 3 squares.</li>
+            <li>You are X, your friend is O.</li>
+            <li>
+              The first player to get 3 of her marks in a row (up, down, across,
+              or diagonally) is the winner.
+            </li>
+            <li>When all 9 squares are full, the game is over</li>
+          </ul>
+        </div>
+        <div class="modal__action" id="modal__action">Start Game</div>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
