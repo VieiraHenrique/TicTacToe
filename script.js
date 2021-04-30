@@ -6,8 +6,8 @@ const gameFrame = document.getElementById("game__frame");
 // Game variables
 const playerOne = "X";
 const playerTwo = "O";
-let currentPlayer;
-let cells;
+let currentPlayer; // Will hold playerOne or playerTwo
+let cells; // Will be an array of nine elements representing each one of the cells
 const winningCombinations = [
   [0, 1, 2],
   [3, 4, 5],
@@ -17,9 +17,10 @@ const winningCombinations = [
   [2, 5, 8],
   [0, 4, 8],
   [2, 4, 6],
-];
+]; // Define the 8 possible combinations for a win
 
 // Initial launch of the game
+//// Modal is on by default at the start of app. An event listener waits for a click to hide the modal and call start game.
 modalAction.addEventListener(
   "click",
   () => {
@@ -36,12 +37,22 @@ const startGame = () => {
   listenToClicks();
 };
 
+// RESET GAME
+//// clean html container of the game
+//// defines each cell as a null value
+//// defines current player to be playerOne (X)
 const resetGame = () => {
   gameFrame.innerHTML = "";
   cells = [null, null, null, null, null, null, null, null, null];
   currentPlayer = playerOne;
 };
 
+// MOUNT BOARD
+//// Create a div element for each cell
+//// Give an unique ID for each cell
+//// Give a "cell" class to each cell
+//// Checks the position of the cell so the border can be adjusted (outter borders are defined to 'none')
+//// Append each cell to the HTML grid
 const mountBoard = () => {
   for (let i = 0; i < 9; i++) {
     const newCell = document.createElement("div");
@@ -62,6 +73,16 @@ const mountBoard = () => {
     gameFrame.appendChild(newCell);
   }
 };
+
+// LISTEN TO CLICKS
+//// For each cell, adds an eventlister for a click (that can be clicked just once)
+//// When clicked, each cell will :
+//////// Insert X or O in the cell html
+//////// Add a class to the cell so the color is adequate for each player
+//////// Add X or O to the right position in the array "cells"
+//// Check for win
+//// If win doesn't return true, check for draw
+//// Swap current player from one to another
 
 const listenToClicks = () => {
   const cellsArray = Array.from(document.querySelectorAll(".cell"));
@@ -84,6 +105,11 @@ const listenToClicks = () => {
   });
 };
 
+// CHECK FOR WIN
+//// Loops through the winning combinations array
+//////// For each combination, checks if each of the correspondant place in the cells array is hold by the current player.
+//////// If it is, calls the end of game with custom text message
+//////// Otherwise, returns false so we can check for a draw
 const checkForWin = () => {
   for (winningCombination of winningCombinations) {
     if (
@@ -98,6 +124,11 @@ const checkForWin = () => {
   return false;
 };
 
+// CHECK FOR DRAW
+//// Declares a sum variable that begins at 0
+//// For each element in the cells array, check if there is another thing than null. If it's the case, adds 1 to the sum.
+//// If the sum is 9, all cells are taken and, because checkForWin wasn't successful, it's a tie.
+//// Calls end of game with custom text message
 const checkForDraw = () => {
   let sum = 0;
   cells.forEach((cell) => {
@@ -110,6 +141,8 @@ const checkForDraw = () => {
   }
 };
 
+// SWAP PLAYERS
+//// Check who is the current player and assign the opposite to be the current player
 const swapPlayer = () => {
   if (currentPlayer === playerOne) {
     currentPlayer = playerTwo;
@@ -118,6 +151,12 @@ const swapPlayer = () => {
   }
 };
 
+// END OF GAME
+//// Display the modal
+//// Give the modal a slightly different background than the default one
+//// Customize the modal title with the arguments passed through
+//// Generates the message for the modal content
+//// Sets the button "play again" with an event listener that, when clicked, will call startGame.
 const endOfGame = (text) => {
   modal.style.display = "flex";
   modal.style.background = "rgba(0,0,0,0.9)";
