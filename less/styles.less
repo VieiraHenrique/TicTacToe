@@ -170,16 +170,30 @@ img {
     place-items: center;
     font-size: 100px;
     font-weight: bold;
-    box-shadow: 1px 2px 5px rgba(#fff, 0.8);
+    box-shadow: 2px 2px 10px rgba(#fff, 0.2);
+    /* border-radius: 30px; */
+
+    // Creates hover effect on cells that doesn't have value yet
+    &:hover:not(.X):not(.O) {
+      background: rgba(#fff, 0.1);
+      cursor: pointer;
+    }
   }
 
   // Define colors of each player
+  //// Define cursor not allowed for cells that already have a value
 
   .X {
     color: @white;
+    &:hover {
+      cursor: not-allowed;
+    }
   }
 
   .O {
     color: @primary-color;
+    &:hover {
+      cursor: not-allowed;
+    }
   }
 }

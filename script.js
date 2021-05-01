@@ -93,7 +93,6 @@ const listenToClicks = () => {
         cell.innerHTML = currentPlayer;
         cell.classList.add(currentPlayer);
         cells[cell.id] = currentPlayer;
-        console.log(cells);
         checkForWin();
         if (!checkForWin()) {
           checkForDraw();
