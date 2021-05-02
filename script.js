@@ -121,7 +121,7 @@ const checkForWin = () => {
       cells[winningCombination[2]] === currentPlayer
     ) {
       endOfGame(
-        `<p>"<span class="${currentPlayer}">${currentPlayer}</span> WINS !</p>`
+        `<p>"<span class="${currentPlayer}">${currentPlayer}</span>" WINS !</p>`
       );
       return true;
     }
