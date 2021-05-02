@@ -87,6 +87,29 @@ img {
   }
 }
 
+/* SNACKBAR */
+
+#snackbar {
+  padding: 10px 50px;
+  background: @black;
+  color: @white;
+  position: fixed;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 20px;
+  display: none;
+
+  p {
+    font-size: 20px;
+    color: @gray-light;
+
+    span {
+      font-weight: bold;
+      font-size: 30px;
+    }
+  }
+}
+
 /* HEADER */
 // Header is positioned fixed and is above all elements in the page
 
@@ -183,18 +206,18 @@ img {
 
   // Define colors of each player
   //// Define cursor not allowed for cells that already have a value
+}
 
-  .X {
-    color: @white;
-    &:hover {
-      cursor: not-allowed;
-    }
+.X {
+  color: @white;
+  &:hover {
+    cursor: not-allowed;
   }
+}
 
-  .O {
-    color: @primary-color;
-    &:hover {
-      cursor: not-allowed;
-    }
+.O {
+  color: @primary-color;
+  &:hover {
+    cursor: not-allowed;
   }
 }

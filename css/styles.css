@@ -70,6 +70,25 @@ img {
   background: #af0014;
   cursor: pointer;
 }
+/* SNACKBAR */
+#snackbar {
+  padding: 10px 50px;
+  background: #000;
+  color: #fff;
+  position: fixed;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 20px;
+  display: none;
+}
+#snackbar p {
+  font-size: 20px;
+  color: #969696;
+}
+#snackbar p span {
+  font-weight: bold;
+  font-size: 30px;
+}
 /* HEADER */
 .header {
   background: #fff;
@@ -149,15 +168,15 @@ img {
   background: rgba(255, 255, 255, 0.1);
   cursor: pointer;
 }
-.game__frame .X {
+.X {
   color: #fff;
 }
-.game__frame .X:hover {
+.X:hover {
   cursor: not-allowed;
 }
-.game__frame .O {
+.O {
   color: #e2001a;
 }
-.game__frame .O:hover {
+.O:hover {
   cursor: not-allowed;
 }

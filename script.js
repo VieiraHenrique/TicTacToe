@@ -2,6 +2,7 @@
 const modal = document.getElementById("modal");
 const modalAction = document.getElementById("modal__action");
 const gameFrame = document.getElementById("game__frame");
+const snackbar = document.getElementById("snackbar");
 
 // Game variables
 const playerOne = "X";
@@ -41,10 +42,13 @@ const startGame = () => {
 //// clean html container of the game
 //// defines each cell as a null value
 //// defines current player to be playerOne (X)
+//// defines snackbar text
 const resetGame = () => {
   gameFrame.innerHTML = "";
   cells = [null, null, null, null, null, null, null, null, null];
   currentPlayer = playerOne;
+  snackbar.style.display = "block";
+  snackbar.innerHTML = `<p>It's <span class="${currentPlayer}">${currentPlayer}</span>'s turn</p>`;
 };
 
 // MOUNT BOARD
@@ -116,7 +120,9 @@ const checkForWin = () => {
       cells[winningCombination[1]] === currentPlayer &&
       cells[winningCombination[2]] === currentPlayer
     ) {
-      endOfGame(`"${currentPlayer}" WINS !`);
+      endOfGame(
+        `<p>"<span class="${currentPlayer}">${currentPlayer}</span> WINS !</p>`
+      );
       return true;
     }
   }
@@ -124,18 +130,18 @@ const checkForWin = () => {
 };
 
 // CHECK FOR DRAW
-//// Declares a sum variable that begins at 0
-//// For each element in the cells array, check if there is another thing than null. If it's the case, adds 1 to the sum.
-//// If the sum is 9, all cells are taken and, because checkForWin wasn't successful, it's a tie.
+//// Declares a cellsPlayed variable that begins at 0
+//// For each element in the cells array, check if there is another thing than null. If it's the case, adds 1 to the cellsPlayed.
+//// If the cellsPlayed is 9, all cells are taken and, because checkForWin wasn't successful, it's a tie.
 //// Calls end of game with custom text message
 const checkForDraw = () => {
-  let sum = 0;
+  let cellsPlayed = 0;
   cells.forEach((cell) => {
     if (cell !== null) {
-      sum++;
+      cellsPlayed++;
     }
   });
-  if (sum === 9) {
+  if (cellsPlayed === 9) {
     endOfGame(`It's a tie !`);
   }
 };
@@ -148,15 +154,18 @@ const swapPlayer = () => {
   } else {
     currentPlayer = playerOne;
   }
+  snackbar.innerHTML = `<p>It's <span class="${currentPlayer}">${currentPlayer}</span>'s turn</p>`;
 };
 
 // END OF GAME
+//// Hides snackbar
 //// Display the modal
 //// Give the modal a slightly different background than the default one
 //// Customize the modal title with the arguments passed through
 //// Generates the message for the modal content
 //// Sets the button "play again" with an event listener that, when clicked, will call startGame.
 const endOfGame = (text) => {
+  snackbar.style.display = "none";
   modal.style.display = "flex";
   modal.style.background = "rgba(0,0,0,0.9)";
   modal.querySelector(".modal__title").innerHTML = text;
