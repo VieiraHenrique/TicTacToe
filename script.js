@@ -42,7 +42,7 @@ const startGame = () => {
 //// clean html container of the game
 //// defines each cell as a null value
 //// defines current player to be playerOne (X)
-//// defines snackbar text
+//// displays snackbar and defines its text
 const resetGame = () => {
   gameFrame.innerHTML = "";
   cells = [null, null, null, null, null, null, null, null, null];
@@ -148,6 +148,7 @@ const checkForDraw = () => {
 
 // SWAP PLAYERS
 //// Check who is the current player and assign the opposite to be the current player
+//// Changes the text of snackbar
 const swapPlayer = () => {
   if (currentPlayer === playerOne) {
     currentPlayer = playerTwo;
